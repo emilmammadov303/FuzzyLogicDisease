@@ -8,9 +8,9 @@ X=[X1 X2 X3 X4];
 mu_X=[mu_X1 mu_X2 mu_X3 mu_X4]; plot(X,mu_X)
 
 if xi>=a&xi<=c
-    mu_xi=alfa*(xi-a)/(c-a)
+    mu_xi=alfa*(xi-a)/(c-a);
 elseif xi>c&xi<=b
-    mu_xi=alfa*(xi-b)/(c-b)
+    mu_xi=alfa*(xi-b)/(c-b);
 else
-    mu_xi=0
+    mu_xi=0;
 end

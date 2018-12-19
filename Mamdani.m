@@ -2,7 +2,7 @@ clc;
 clear;
 clear all;
 
-global X mu_X mu_xi;
+global mu_xi X mu_X;
 altsinir=0; ustsinirSene=70; ustsinirAdet=70; ustsinirYas=90; ustsinirHastalik=100;
 
 %Numerik Girisler
