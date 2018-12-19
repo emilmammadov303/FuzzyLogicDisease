@@ -6,27 +6,27 @@ global X mu_X mu_xi;
 altsinir=0; ustsinirSene=70; ustsinirAdet=70; ustsinirYas=90; ustsinirHastalik=100;
 
 %Numerik Girisler
-xi=35; yi=35; zi=45; ki=0;
+xi=20; yi=20; zi=45; ki=0;
 
 %Bulanik Kumelerin Olusturulmasi
     %Sene
-ucgen(altsinir,0,0,10,ustsinirSene,xi);         seneAz = mu_xi;
-ucgen(altsinir,5,10,18,ustsinirSene,xi);        seneOrta = mu_xi;
-yamuk(altsinir,10,17,70,70,ustsinirSene,xi);    seneCok = mu_xi;
+ucgen(altsinir,0,0,10,ustsinirSene,xi);                 seneAz = mu_xi;
+CauchyEgrisi(altsinir,ustsinirSene,13,8,1.5,xi);        seneOrta = mu_xi;
+CauchyEgrisi(altsinir,ustsinirSene,70,40,2.6,xi);       seneCok = mu_xi;
     %Adet
-yamuk(altsinir,0,0,5,15,ustsinirAdet,yi);      adetAz = mu_xi;
-yamuk(altsinir,5,10,20,30,ustsinirAdet,yi);     adetOrta = mu_xi;
-yamuk(altsinir,20,35,70,70,ustsinirAdet,yi);    adetCok = mu_xi;
+yamuk(altsinir,0,0,5,15,ustsinirAdet,yi);               adetAz = mu_xi;
+CauchyEgrisi(altsinir,ustsinirAdet,15,8,2.5,yi);        adetOrta = mu_xi;
+CauchyEgrisi(altsinir,ustsinirAdet,70,33,2.5,yi);       adetCok = mu_xi;
     %Yas
-yamuk(altsinir,0,0,25,35,ustsinirYas,zi);       yasAz = mu_xi;
-yamuk(altsinir,25,33,48,60,ustsinirYas,zi);     yasOrta = mu_xi;
-yamuk(altsinir,48,60,90,90,ustsinirYas,zi);     yasCok = mu_xi;
+yamuk(altsinir,0,0,25,35,ustsinirYas,zi);               yasAz = mu_xi;
+yamuk(altsinir,25,33,48,60,ustsinirYas,zi);             yasOrta = mu_xi;
+yamuk(altsinir,48,60,90,90,ustsinirYas,zi);             yasCok = mu_xi;
     %Hastalik
-ucgen(altsinir,0,0,25,ustsinirHastalik,ki);     hastAz = mu_X;
-ucgen(altsinir,0,25,50,ustsinirHastalik,ki);    hastAoa = mu_X;
-ucgen(altsinir,25,50,75,ustsinirHastalik,ki);   hastOrta = mu_X;
-ucgen(altsinir,50,75,100,ustsinirHastalik,ki);  hastOca = mu_X;
-ucgen(altsinir,75,100,100,ustsinirHastalik,ki); hastCok = mu_X;
+ucgen(altsinir,0,0,25,ustsinirHastalik,ki);             hastAz = mu_X;
+ucgen(altsinir,0,25,50,ustsinirHastalik,ki);            hastAoa = mu_X;
+ucgen(altsinir,25,50,75,ustsinirHastalik,ki);           hastOrta = mu_X;
+ucgen(altsinir,50,75,100,ustsinirHastalik,ki);          hastOca = mu_X;
+ucgen(altsinir,75,100,100,ustsinirHastalik,ki);         hastCok = mu_X;
 
 %kurallar ve gerektirme islemleri ile sonuc kumeleri
 
