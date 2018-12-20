@@ -1,0 +1,38 @@
+[System]
+Name='SugenoFuzzyToolbox'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=0
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='sene'
+Range=[0 70]
+NumMFs=3
+MF1='az':'trimf',[0 0 10]
+MF2='orta':'gbellmf',[8 1.5 13]
+MF3='cok':'gbellmf',[40 2.6 70]
+
+[Input2]
+Name='adet'
+Range=[0 70]
+NumMFs=3
+MF1='az':'trapmf',[0 0 5 15]
+MF2='orta':'gbellmf',[8 2.5 15]
+MF3='mf3':'gbellmf',[33 2.5 70]
+
+[Output1]
+Name='hastalik'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'constant',[0]
+MF2='mf2':'constant',[0.5]
+MF3='mf3':'constant',[1]
+
+[Rules]
