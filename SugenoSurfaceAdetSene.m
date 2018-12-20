@@ -3,14 +3,21 @@ clear;
 clear all;
 
 global mu_xi;
-altsinir=0; ustsinirSene=70; ustsinirAdet=70;
-x = 35;  y=35;
+altsinir=0; ustsinirSene=70; ustsinirAdet=70; ustsinirHastalik=100;
 
+X = altsinir:5:ustsinirSene;    Y = altsinir:5:ustsinirAdet;
 a1 = 0;         b1 = 0;         c1 = 0;
 a2 = 0.25;      b2 = 0.25;      c2 = 0.25;
 a3 = 0.5;       b3 = 0.5;       c3 = 0.5;
 a4 = 0.75;      b4 = 0.75;      c4 = 0.75;
 a5 = 1;         b5 = 1;         c5 = 1;
+
+for i=1:size(X,2)
+    for j=1:size(Y,2)
+    toplam_agirlik = 0;
+    
+x = X(i);   y = Y(j);
+
 
 %Bulanik Kumelerin Olusturulmasi
     %Sene
@@ -48,5 +55,9 @@ toplam_agirlik = w1 + w2 + w3 + w4 + w5 + w6 + w7 + w8 + w9;
 if toplam_agirlik == 0
     'Deneme'
 end
-z = SAT/toplam_agirlik;
+z(i,j) = SAT/toplam_agirlik;
 
+    end
+end
+
+surf(X,Y,z);

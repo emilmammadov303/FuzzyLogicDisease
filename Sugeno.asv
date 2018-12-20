@@ -4,7 +4,7 @@ clear all;
 
 global mu_xi;
 altsinir=0; ustsinirSene=70; ustsinirAdet=70;
-x = 35;  y=35;
+x = 20
 
 a1 = 0;         b1 = 0;         c1 = 0;
 a2 = 0.25;      b2 = 0.25;      c2 = 0.25;
