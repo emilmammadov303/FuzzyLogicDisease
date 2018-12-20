@@ -41,8 +41,6 @@ sonuc6 = min(seneAz,adetOrta) * hastOca;
 sonuc7 = min(seneAz,adetCok) * hastAoa;
 sonuc8 = min(seneAz,adetCok) * hastOrta;
 sonuc9 = min(seneAz,adetCok) * hastOca;
-
-
 sonuc10 = min(seneOrta,adetAz) * hastAoa;
 sonuc11 = min(seneOrta,adetAz) * hastOrta;
 sonuc12 = min(seneOrta,adetAz) * hastOca;
@@ -52,8 +50,6 @@ sonuc15 = min(seneOrta,adetOrta) * hastOca;
 sonuc16 = min(seneOrta,adetCok) * hastOrta;
 sonuc17 = min(seneOrta,adetCok) * hastOca;
 sonuc18 = min(seneOrta,adetCok) * hastCok;
-
-
 sonuc19 = min(seneCok,adetAz) * hastOrta;
 sonuc20 = min(seneCok,adetAz) * hastOca;
 sonuc21 = min(seneCok,adetOrta) * hastOca;
@@ -76,5 +72,8 @@ end
 
 [a,s] = meshgrid(A,S);
 surf(a,s,z);
+xlabel('Sene');
+ylabel('Adet');
+zlabel('Hastalik');
 
 

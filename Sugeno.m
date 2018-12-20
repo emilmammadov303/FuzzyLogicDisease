@@ -44,9 +44,13 @@ w9 = min(seneCok,adetCok);
 
 SAT = w1*z1 + w2*z2 + w3*z2 + w4*z2 + w5*z3 + w6*z3 + w7*z3 + w8*z3 + w9*z5;
 
+
+
 toplam_agirlik = w1 + w2 + w3 + w4 + w5 + w6 + w7 + w8 + w9;
 if toplam_agirlik == 0
     'Deneme'
 end
-z = SAT/toplam_agirlik;
+z = SAT/toplam_agirlik
+
+
 

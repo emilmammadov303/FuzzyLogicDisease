@@ -6,7 +6,7 @@ global mu_xi X mu_X;
 altsinir=0; ustsinirSene=70; ustsinirAdet=70; ustsinirYas=90; ustsinirHastalik=100;
 
 %Numerik Girisler
-xi=20; yi=20; zi=45; ki=0;
+xi=10; yi=10; zi=45; ki=0;
 
 %Bulanik Kumelerin Olusturulmasi
     %Sene
@@ -39,8 +39,6 @@ sonuc6 = min(min(seneAz,adetOrta),yasCok) * hastOca;
 sonuc7 = min(min(seneAz,adetCok),yasAz) * hastAoa;
 sonuc8 = min(min(seneAz,adetCok),yasOrta) * hastOrta;
 sonuc9 = min(min(seneAz,adetCok),yasCok) * hastOca;
-
-
 sonuc10 = min(min(seneOrta,adetAz),yasAz) * hastAoa;
 sonuc11 = min(min(seneOrta,adetAz),yasOrta) * hastOrta;
 sonuc12 = min(min(seneOrta,adetAz),yasCok) * hastOca;
@@ -50,8 +48,6 @@ sonuc15 = min(min(seneOrta,adetOrta),yasCok) * hastOca;
 sonuc16 = min(min(seneOrta,adetCok),yasAz) * hastOrta;
 sonuc17 = min(min(seneOrta,adetCok),yasOrta) * hastOca;
 sonuc18 = min(min(seneOrta,adetCok),yasCok) * hastCok;
-
-
 sonuc19 = min(min(seneCok,adetAz),yasOrta) * hastOrta;
 sonuc20 = min(min(seneCok,adetAz),yasCok) * hastOca;
 sonuc21 = min(min(seneCok,adetOrta),yasOrta) * hastOca;
@@ -61,8 +57,7 @@ sonuc24 = min(min(seneCok,adetCok),yasCok) * hastCok;
 
 birlestirme = max(max(max(max(max(sonuc1,sonuc2),max(sonuc3,sonuc4)),max(max(sonuc5,sonuc6),max(sonuc7,sonuc8))),max(max(max(sonuc9,sonuc10),max(sonuc11,sonuc12)),max(max(sonuc13,sonuc14),max(sonuc15,sonuc16)))),max(max(max(sonuc17,sonuc18),max(sonuc19,sonuc20)),max(max(sonuc21,sonuc22),max(sonuc23,sonuc24))));
 plot(X,birlestirme);
-length(X)
-length(birlestirme)
+
 toplamAlan = sum(birlestirme);
 if toplamAlan == 0
     'Toplam Alan Sifirdir';
