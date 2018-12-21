@@ -4,7 +4,7 @@ clear all;
 
 global mu_xi;
 altsinir=0; ustsinirSene=70; ustsinirAdet=70;
-x = 35;  y=35;
+x = 13;  y=10;
 
 a1 = 0;         b1 = 0;         c1 = 0;
 a2 = 0.25;      b2 = 0.25;      c2 = 0.25;
@@ -52,5 +52,8 @@ if toplam_agirlik == 0
 end
 z = SAT/toplam_agirlik
 
+h=[z,z,z,z,z,z,z,z,z,z,z];
+line(h,0:0.1:1,'Color','red','LineStyle','--');
+xlabel(['z = ', num2str(z)]);
 
 
