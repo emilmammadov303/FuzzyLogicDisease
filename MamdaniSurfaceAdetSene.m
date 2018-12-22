@@ -15,14 +15,15 @@ for i=1:size(A,2)
 a = A(i);  s = S(j);
 
 %Bulanik Kumelerin Olusturulmasi
-    %Sene
-ucgen(altsinir,0,0,10,ustsinirSene,s);                 seneAz = mu_xi;
-CauchyEgrisi(altsinir,ustsinirSene,13,8,1.5,s);        seneOrta = mu_xi;
-CauchyEgrisi(altsinir,ustsinirSene,70,40,2.6,s);       seneCok = mu_xi;
+
     %Adet
 yamuk(altsinir,0,0,5,15,ustsinirAdet,a);               adetAz = mu_xi;
 CauchyEgrisi(altsinir,ustsinirAdet,15,8,2.5,a);        adetOrta = mu_xi;
 CauchyEgrisi(altsinir,ustsinirAdet,70,33,2.5,a);       adetCok = mu_xi;
+    %Sene
+ucgen(altsinir,0,0,10,ustsinirSene,s);                 seneAz = mu_xi;
+CauchyEgrisi(altsinir,ustsinirSene,13,8,1.5,s);        seneOrta = mu_xi;
+CauchyEgrisi(altsinir,ustsinirSene,70,40,2.6,s);       seneCok = mu_xi;
     %Hastalik
 ucgenCik(altsinir,0,0,25,ustsinirHastalik);             hastAz = mu_X;
 ucgenCik(altsinir,0,25,50,ustsinirHastalik);            hastAoa = mu_X;
@@ -72,8 +73,8 @@ end
 
 [a,s] = meshgrid(A,S);
 surf(a,s,z);
-xlabel('Sene');
-ylabel('Adet');
+xlabel('Adet');
+ylabel('Sene');
 zlabel('Hastalik');
 
 
