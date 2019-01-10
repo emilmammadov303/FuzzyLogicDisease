@@ -1,4 +1,4 @@
-function yamuk(altsinir,a,c,d,b,ustsinir,xi)
+function trapezoid(altsinir,a,c,d,b,ustsinir,xi)
 global X mu_X mu_xi;
 
 alfa=1; X1=altsinir:0.001:a-0.001; X2=a:0.001:c-0.001; X3=c:0.001:d-0.001; X4=d:0.001:b-0.001; X5=b:0.001:ustsinir;

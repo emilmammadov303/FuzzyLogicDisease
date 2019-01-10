@@ -1,0 +1,70 @@
+clc;
+clear;
+clear all;
+
+global mu_xi X mu_X;
+lowLimit=0; hLimitYear=70; hLimitPiece=70; hLimitAge=90; hLimitDisease=100;
+
+%Numerik Girisler
+xi=10; yi=10; zi=45; ki=0;
+
+%Bulanik Kumelerin Olusturulmasi
+    %Sene
+triangle(lowLimit,0,0,10,hLimitYear,xi);                 yearL = mu_xi;
+Cauchy(lowLimit,hLimitYear,13,8,1.5,xi);        yearM = mu_xi;
+Cauchy(lowLimit,hLimitYear,70,40,2.6,xi);       yearH = mu_xi;
+    %Adet
+trapezoid(lowLimit,0,0,5,15,hLimitPiece,yi);               pieceL = mu_xi;
+Cauchy(lowLimit,hLimitPiece,15,8,2.5,yi);        pieceM = mu_xi;
+Cauchy(lowLimit,hLimitPiece,70,33,2.5,yi);       pieceH = mu_xi;
+    %Yas
+trapezoid(lowLimit,0,0,25,35,ustsinirYas,zi);               ageL = mu_xi;
+trapezoid(lowLimit,25,33,48,60,ustsinirYas,zi);             ageM = mu_xi;
+trapezoid(lowLimit,48,60,90,90,ustsinirYas,zi);             ageH = mu_xi;
+    %Hastalik
+triangle(lowLimit,0,0,25,hLimitDisease,ki);             diseaseL = mu_X;
+triangle(lowLimit,0,25,50,hLimitDisease,ki);            diseaseLM = mu_X;
+triangle(lowLimit,25,50,75,hLimitDisease,ki);           diseaseM = mu_X;
+triangle(lowLimit,50,75,100,hLimitDisease,ki);          diseaseMH = mu_X;
+triangle(lowLimit,75,100,100,hLimitDisease,ki);         diseaseH = mu_X;
+
+%kurallar ve gerektirme islemleri ile sonuc kumeleri
+
+sonuc1 = min(min(yearL,pieceL),ageL) * diseaseL;
+sonuc2 = min(min(yearL,pieceL),ageM) * diseaseLM;
+sonuc3 = min(min(yearL,pieceL),ageH) * diseaseM;
+sonuc4 = min(min(yearL,pieceM),ageL) * diseaseLM;
+sonuc5 = min(min(yearL,pieceM),ageM) * diseaseM;
+sonuc6 = min(min(yearL,pieceM),ageH) * diseaseMH;
+sonuc7 = min(min(yearL,pieceH),ageL) * diseaseLM;
+sonuc8 = min(min(yearL,pieceH),ageM) * diseaseM;
+sonuc9 = min(min(yearL,pieceH),ageH) * diseaseMH;
+sonuc10 = min(min(yearM,pieceL),ageL) * diseaseLM;
+sonuc11 = min(min(yearM,pieceL),ageM) * diseaseM;
+sonuc12 = min(min(yearM,pieceL),ageH) * diseaseMH;
+sonuc13 = min(min(yearM,pieceM),ageL) * diseaseM;
+sonuc14 = min(min(yearM,pieceM),ageM) * diseaseM;
+sonuc15 = min(min(yearM,pieceM),ageH) * diseaseMH;
+sonuc16 = min(min(yearM,pieceH),ageL) * diseaseM;
+sonuc17 = min(min(yearM,pieceH),ageM) * diseaseMH;
+sonuc18 = min(min(yearM,pieceH),ageH) * diseaseH;
+sonuc19 = min(min(yearH,pieceL),ageM) * diseaseM;
+sonuc20 = min(min(yearH,pieceL),ageH) * diseaseMH;
+sonuc21 = min(min(yearH,pieceM),ageM) * diseaseMH;
+sonuc22 = min(min(yearH,pieceM),ageH) * diseaseMH;
+sonuc23 = min(min(yearH,pieceH),ageM) * diseaseH;
+sonuc24 = min(min(yearH,pieceH),ageH) * diseaseH;
+
+birlestirme = max(max(max(max(max(sonuc1,sonuc2),max(sonuc3,sonuc4)),max(max(sonuc5,sonuc6),max(sonuc7,sonuc8))),max(max(max(sonuc9,sonuc10),max(sonuc11,sonuc12)),max(max(sonuc13,sonuc14),max(sonuc15,sonuc16)))),max(max(max(sonuc17,sonuc18),max(sonuc19,sonuc20)),max(max(sonuc21,sonuc22),max(sonuc23,sonuc24))));
+plot(X,birlestirme);
+
+toplamAlan = sum(birlestirme);
+if toplamAlan == 0
+    'Toplam Alan Sifirdir';
+end
+z = sum(birlestirme.*X)/toplamAlan;
+h=[z,z,z,z,z,z,z,z,z,z,z];
+line(h,0:0.1:1,'Color','red','LineStyle','--');
+xlabel(['z = ', num2str(z)]);
+
+

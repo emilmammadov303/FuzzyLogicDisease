@@ -1,4 +1,4 @@
-function ucgen(altsinir,a,c,b,ustsinir,xi)
+function triangle(altsinir,a,c,b,ustsinir,xi)
 global X mu_X mu_xi;
 
 alfa=1; X1=altsinir:0.001:a-0.001; X2=a:0.001:c-0.001; X3=c:0.001:b-0.001; X4=b:0.001:ustsinir;
