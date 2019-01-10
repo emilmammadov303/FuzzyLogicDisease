@@ -11,22 +11,22 @@ xi=10; yi=10; zi=45; ki=0;
 %Bulanik Kumelerin Olusturulmasi
     %Sene
 triangle(lowLimit,0,0,10,hLimitYear,xi);                 yearL = mu_xi;
-Cauchy(lowLimit,hLimitYear,13,8,1.5,xi);        yearM = mu_xi;
-Cauchy(lowLimit,hLimitYear,70,40,2.6,xi);       yearH = mu_xi;
+Cauchy(lowLimit,hLimitYear,13,8,1.5,xi);                 yearM = mu_xi;
+Cauchy(lowLimit,hLimitYear,70,40,2.6,xi);                yearH = mu_xi;
     %Adet
-trapezoid(lowLimit,0,0,5,15,hLimitPiece,yi);               pieceL = mu_xi;
-Cauchy(lowLimit,hLimitPiece,15,8,2.5,yi);        pieceM = mu_xi;
-Cauchy(lowLimit,hLimitPiece,70,33,2.5,yi);       pieceH = mu_xi;
+trapezoid(lowLimit,0,0,5,15,hLimitPiece,yi);             pieceL = mu_xi;
+Cauchy(lowLimit,hLimitPiece,15,8,2.5,yi);                pieceM = mu_xi;
+Cauchy(lowLimit,hLimitPiece,70,33,2.5,yi);               pieceH = mu_xi;
     %Yas
-trapezoid(lowLimit,0,0,25,35,ustsinirYas,zi);               ageL = mu_xi;
-trapezoid(lowLimit,25,33,48,60,ustsinirYas,zi);             ageM = mu_xi;
-trapezoid(lowLimit,48,60,90,90,ustsinirYas,zi);             ageH = mu_xi;
+trapezoid(lowLimit,0,0,25,35,hLimitAge,zi);            ageL = mu_xi;
+trapezoid(lowLimit,25,33,48,60,hLimitAge,zi);          ageM = mu_xi;
+trapezoid(lowLimit,48,60,90,90,hLimitAge,zi);          ageH = mu_xi;
     %Hastalik
-triangle(lowLimit,0,0,25,hLimitDisease,ki);             diseaseL = mu_X;
-triangle(lowLimit,0,25,50,hLimitDisease,ki);            diseaseLM = mu_X;
-triangle(lowLimit,25,50,75,hLimitDisease,ki);           diseaseM = mu_X;
-triangle(lowLimit,50,75,100,hLimitDisease,ki);          diseaseMH = mu_X;
-triangle(lowLimit,75,100,100,hLimitDisease,ki);         diseaseH = mu_X;
+triangle(lowLimit,0,0,25,hLimitDisease,ki);              diseaseL = mu_X;
+triangle(lowLimit,0,25,50,hLimitDisease,ki);             diseaseLM = mu_X;
+triangle(lowLimit,25,50,75,hLimitDisease,ki);            diseaseM = mu_X;
+triangle(lowLimit,50,75,100,hLimitDisease,ki);           diseaseMH = mu_X;
+triangle(lowLimit,75,100,100,hLimitDisease,ki);          diseaseH = mu_X;
 
 %kurallar ve gerektirme islemleri ile sonuc kumeleri
 

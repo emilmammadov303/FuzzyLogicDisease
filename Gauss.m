@@ -1,4 +1,4 @@
-function GaussEgrisi(altsinir,ustsinir,c,sigma,xi)
+function Gauss(altsinir,ustsinir,c,sigma,xi)
 global X mu_X mu_xi;
 
 X=altsinir:0.001:ustsinir;

@@ -1,4 +1,4 @@
-function CauchyEgrisi(altsinir,ustsinir,c,sigma,n,xi)
+function Cauchy(altsinir,ustsinir,c,sigma,n,xi)
 global X mu_X mu_xi;
 
 X=altsinir:0.001:ustsinir;

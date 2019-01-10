@@ -1,0 +1,78 @@
+clc;
+clear;
+clear all;
+
+global mu_xi X mu_X;
+lowLimit=0; hLimitAge=70; hLimitPiece=70; hLimitDisease=100;
+
+A = lowLimit:5:hLimitPiece;   Y = lowLimit:5:hLimitAge;
+
+for i=1:size(A,2)
+    for j=1:size(Y,2)
+    totalArea = 0;
+
+%Numerik Girisler
+a = A(i);  y = Y(j);
+
+%Bulanik Kumelerin Olusturulmasi
+    %Yas
+trapezoid(lowLimit,0,0,25,35,hLimitAge,y);               ageL = mu_xi;
+trapezoid(lowLimit,25,33,48,60,hLimitAge,y);             ageM = mu_xi;
+trapezoid(lowLimit,48,60,90,90,hLimitAge,y);             ageH = mu_xi;
+    %Adet
+trapezoid(lowLimit,0,0,5,15,hLimitPiece,a);               pieceL = mu_xi;
+Cauchy(lowLimit,hLimitPiece,15,8,2.5,a);            pieceM = mu_xi;
+Cauchy(lowLimit,hLimitPiece,70,33,2.5,a);       pieceH = mu_xi;
+    %Hastalik
+triangleOut(lowLimit,0,0,25,hLimitDisease);             hastAz = mu_X;
+triangleOut(lowLimit,0,25,50,hLimitDisease);            hastAoa = mu_X;
+triangleOut(lowLimit,25,50,75,hLimitDisease);           hastOrta = mu_X;
+triangleOut(lowLimit,50,75,100,hLimitDisease);          hastOca = mu_X;
+triangleOut(lowLimit,75,100,100,hLimitDisease);         hastCok = mu_X;
+
+%kurallar ve gerektirme islemleri ile sonuc kumeleri
+
+sonuc1 = min(pieceL,ageL) * hastAz;
+sonuc2 = min(pieceL,ageM) * hastAoa;
+sonuc3 = min(pieceL,ageH) * hastOrta;
+sonuc4 = min(pieceM,ageL) * hastAoa;
+sonuc5 = min(pieceM,ageM) * hastOrta;
+sonuc6 = min(pieceM,ageH) * hastOca;
+sonuc7 = min(pieceH,ageL) * hastAoa;
+sonuc8 = min(pieceH,ageM) * hastOrta;
+sonuc9 = min(pieceH,ageH) * hastOca;
+sonuc10 = min(pieceL,ageL) * hastAoa;
+sonuc11 = min(pieceL,ageM) * hastOrta;
+sonuc12 = min(pieceL,ageH) * hastOca;
+sonuc13 = min(pieceM,ageL) * hastOrta;
+sonuc14 = min(pieceM,ageM) * hastOrta;
+sonuc15 = min(pieceM,ageH) * hastOca;
+sonuc16 = min(pieceH,ageL) * hastOrta;
+sonuc17 = min(pieceH,ageM) * hastOca;
+sonuc18 = min(pieceH,ageH) * hastCok;
+sonuc19 = min(pieceL,ageM) * hastOrta;
+sonuc20 = min(pieceL,ageH) * hastOca;
+sonuc21 = min(pieceM,ageM) * hastOca;
+sonuc22 = min(pieceM,ageH) * hastOca;
+sonuc23 = min(pieceH,ageM) * hastCok;
+sonuc24 = min(pieceH,ageH) * hastCok;
+
+birlestirme = max(max(max(max(max(sonuc1,sonuc2),max(sonuc3,sonuc4)),max(max(sonuc5,sonuc6),max(sonuc7,sonuc8))),max(max(max(sonuc9,sonuc10),max(sonuc11,sonuc12)),max(max(sonuc13,sonuc14),max(sonuc15,sonuc16)))),max(max(max(sonuc17,sonuc18),max(sonuc19,sonuc20)),max(max(sonuc21,sonuc22),max(sonuc23,sonuc24))));
+
+
+
+toplamAlan = sum(birlestirme);
+if toplamAlan == 0
+    'Toplam Alan Sifirdir';
+end
+z(i, j) = sum(birlestirme.*X)/toplamAlan;
+    end
+end
+
+[a,y] = meshgrid(A,Y);
+surf(a,y,z);
+xlabel('Yas');
+ylabel('Adet');
+zlabel('Hastalik');
+
+
