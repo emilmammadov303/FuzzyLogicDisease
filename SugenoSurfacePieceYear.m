@@ -21,13 +21,13 @@ x = X(i);   y = Y(j);
 
 %Bulanik Kumelerin Olusturulmasi
     %Sene
-triangle(lowLimit,0,0,10,hLimitYear,x);                 seneAz = mu_xi;
-Cauchy(lowLimit,hLimitYear,13,8,1.5,x);                 seneOrta = mu_xi;
-Cauchy(lowLimit,hLimitYear,70,40,2.6,x);                seneCok = mu_xi;
+triangle(lowLimit,0,0,10,hLimitYear,x);                 yearL = mu_xi;
+Cauchy(lowLimit,hLimitYear,13,8,1.5,x);                 yearM = mu_xi;
+Cauchy(lowLimit,hLimitYear,70,40,2.6,x);                yearH = mu_xi;
     %Adet
-trapezoid(lowLimit,0,0,5,15,hLimitPiece,y);             adetAz = mu_xi;
-Cauchy(lowLimit,hLimitPiece,15,8,2.5,y);                adetOrta = mu_xi;
-Cauchy(lowLimit,hLimitPiece,70,33,2.5,y);               adetCok = mu_xi;
+trapezoid(lowLimit,0,0,5,15,hLimitPiece,y);             pieceL = mu_xi;
+Cauchy(lowLimit,hLimitPiece,15,8,2.5,y);                pieceM = mu_xi;
+Cauchy(lowLimit,hLimitPiece,70,33,2.5,y);               pieceH = mu_xi;
     %Hastalik
 z1 = a1*x + b1*y + c1;
 z2 = a2*x + b2*y + c2;
