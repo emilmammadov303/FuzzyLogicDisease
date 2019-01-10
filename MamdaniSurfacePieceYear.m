@@ -3,13 +3,13 @@ clear;
 clear all;
 
 global mu_xi X mu_X;
-altsinir=0; ustsinirSene=70; ustsinirAdet=70; ustsinirHastalik=100;
+lowLimit=0; hLimitYear=70; hLimitPiece=70; hLimitDisease=100;
 
-A = altsinir:5:ustsinirAdet;   S = altsinir:5:ustsinirSene;
+A = lowLimit:5:hLimitPiece;   S = lowLimit:5:hLimitYear;
 
 for i=1:size(A,2)
     for j=1:size(S,2)
-    toplam_alan = 0;
+    totalArea = 0;
 
 %Numerik Girisler
 a = A(i);  s = S(j);
@@ -17,64 +17,64 @@ a = A(i);  s = S(j);
 %Bulanik Kumelerin Olusturulmasi
 
     %Adet
-yamuk(altsinir,0,0,5,15,ustsinirAdet,a);               adetAz = mu_xi;
-CauchyEgrisi(altsinir,ustsinirAdet,15,8,2.5,a);        adetOrta = mu_xi;
-CauchyEgrisi(altsinir,ustsinirAdet,70,33,2.5,a);       adetCok = mu_xi;
+trapezoid(lowLimit,0,0,5,15,hLimitPiece,a);             pieceL = mu_xi;
+Cauchy(lowLimit,hLimitPiece,15,8,2.5,a);                pieceM = mu_xi;
+Cauchy(lowLimit,hLimitPiece,70,33,2.5,a);               pieceH = mu_xi;
     %Sene
-ucgen(altsinir,0,0,10,ustsinirSene,s);                 seneAz = mu_xi;
-CauchyEgrisi(altsinir,ustsinirSene,13,8,1.5,s);        seneOrta = mu_xi;
-CauchyEgrisi(altsinir,ustsinirSene,70,40,2.6,s);       seneCok = mu_xi;
+triangle(lowLimit,0,0,10,hLimitYear,s);                 yearL = mu_xi;
+Cauchy(lowLimit,hLimitYear,13,8,1.5,s);                 yearM = mu_xi;
+Cauchy(lowLimit,hLimitYear,70,40,2.6,s);                yearH = mu_xi;
     %Hastalik
-ucgenCik(altsinir,0,0,25,ustsinirHastalik);             hastAz = mu_X;
-ucgenCik(altsinir,0,25,50,ustsinirHastalik);            hastAoa = mu_X;
-ucgenCik(altsinir,25,50,75,ustsinirHastalik);           hastOrta = mu_X;
-ucgenCik(altsinir,50,75,100,ustsinirHastalik);          hastOca = mu_X;
-ucgenCik(altsinir,75,100,100,ustsinirHastalik);         hastCok = mu_X;
+triangleOut(lowLimit,0,0,25,hLimitDisease);             diseaseL = mu_X;
+triangleOut(lowLimit,0,25,50,hLimitDisease);            diseaseLM = mu_X;
+triangleOut(lowLimit,25,50,75,hLimitDisease);           diseaseM = mu_X;
+triangleOut(lowLimit,50,75,100,hLimitDisease);          diseaseMH = mu_X;
+triangleOut(lowLimit,75,100,100,hLimitDisease);         diseaseH = mu_X;
 
 %kurallar ve gerektirme islemleri ile sonuc kumeleri
 
-sonuc1 = min(seneAz,adetAz) * hastAz;
-sonuc2 = min(seneAz,adetAz) * hastAoa;
-sonuc3 = min(seneAz,adetAz) * hastOrta;
-sonuc4 = min(seneAz,adetOrta) * hastAoa;
-sonuc5 = min(seneAz,adetOrta) * hastOrta;
-sonuc6 = min(seneAz,adetOrta) * hastOca;
-sonuc7 = min(seneAz,adetCok) * hastAoa;
-sonuc8 = min(seneAz,adetCok) * hastOrta;
-sonuc9 = min(seneAz,adetCok) * hastOca;
-sonuc10 = min(seneOrta,adetAz) * hastAoa;
-sonuc11 = min(seneOrta,adetAz) * hastOrta;
-sonuc12 = min(seneOrta,adetAz) * hastOca;
-sonuc13 = min(seneOrta,adetOrta) * hastOrta;
-sonuc14 = min(seneOrta,adetOrta) * hastOrta;
-sonuc15 = min(seneOrta,adetOrta) * hastOca;
-sonuc16 = min(seneOrta,adetCok) * hastOrta;
-sonuc17 = min(seneOrta,adetCok) * hastOca;
-sonuc18 = min(seneOrta,adetCok) * hastCok;
-sonuc19 = min(seneCok,adetAz) * hastOrta;
-sonuc20 = min(seneCok,adetAz) * hastOca;
-sonuc21 = min(seneCok,adetOrta) * hastOca;
-sonuc22 = min(seneCok,adetOrta) * hastOca;
-sonuc23 = min(seneCok,adetCok) * hastCok;
-sonuc24 = min(seneCok,adetCok) * hastCok;
+res1 = min(yearL,pieceL) * diseaseL;
+res2 = min(yearL,pieceL) * diseaseLM;
+res3 = min(yearL,pieceL) * diseaseM;
+res4 = min(yearL,pieceM) * diseaseLM;
+res5 = min(yearL,pieceM) * diseaseM;
+res6 = min(yearL,pieceM) * diseaseMH;
+res7 = min(yearL,pieceH) * diseaseLM;
+res8 = min(yearL,pieceH) * diseaseM;
+res9 = min(yearL,pieceH) * diseaseMH;
+res10 = min(yearM,pieceL) * diseaseLM;
+res11 = min(yearM,pieceL) * diseaseM;
+res12 = min(yearM,pieceL) * diseaseMH;
+res13 = min(yearM,pieceM) * diseaseM;
+res14 = min(yearM,pieceM) * diseaseM;
+res15 = min(yearM,pieceM) * diseaseMH;
+res16 = min(yearM,pieceH) * diseaseM;
+res17 = min(yearM,pieceH) * diseaseMH;
+res18 = min(yearM,pieceH) * diseaseH;
+res19 = min(yearH,pieceL) * diseaseM;
+res20 = min(yearH,pieceL) * diseaseMH;
+res21 = min(yearH,pieceM) * diseaseMH;
+res22 = min(yearH,pieceM) * diseaseMH;
+res23 = min(yearH,pieceH) * diseaseH;
+res24 = min(yearH,pieceH) * diseaseH;
 
-birlestirme = max(max(max(max(max(sonuc1,sonuc2),max(sonuc3,sonuc4)),max(max(sonuc5,sonuc6),max(sonuc7,sonuc8))),max(max(max(sonuc9,sonuc10),max(sonuc11,sonuc12)),max(max(sonuc13,sonuc14),max(sonuc15,sonuc16)))),max(max(max(sonuc17,sonuc18),max(sonuc19,sonuc20)),max(max(sonuc21,sonuc22),max(sonuc23,sonuc24))));
-plot(X,birlestirme);
+aggregation = max(max(max(max(max(res1,res2),max(res3,res4)),max(max(res5,res6),max(res7,res8))),max(max(max(res9,res10),max(res11,res12)),max(max(res13,res14),max(res15,res16)))),max(max(max(res17,res18),max(res19,res20)),max(max(res21,res22),max(res23,res24))));
+plot(X,aggregation);
 
 
 
-toplamAlan = sum(birlestirme);
-if toplamAlan == 0
-    'Toplam Alan Sifirdir';
+totalArea = sum(aggregation);
+if totalArea == 0
+    'Total Area is zero';
 end
-z(i, j) = sum(birlestirme.*X)/toplamAlan;
+z(i, j) = sum(aggregation.*X)/totalArea;
     end
 end
 
 [a,s] = meshgrid(A,S);
 surf(a,s,z);
-xlabel('Adet');
-ylabel('Sene');
-zlabel('Hastalik');
+xlabel('PIECE');
+ylabel('YEAR');
+zlabel('DISEASE');
 
 
